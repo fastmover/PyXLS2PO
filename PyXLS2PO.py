@@ -32,9 +32,9 @@ curr_row = -1
 while curr_row < num_rows:
   curr_row += 1
   row = worksheet.row(curr_row)
-  line1 = unicode(row[0].value)
-  line2 = unicode(row[1].value)
-  line3 = unicode(row[2].value)
+  line1 = unicode(row[0].value).replace('\n', '')
+  line2 = unicode(row[1].value).replace('\n', '')
+  line3 = unicode(row[2].value).replace('\n', '')
 
   # See output of the translated language, just for fun.
   print line3
@@ -42,7 +42,7 @@ while curr_row < num_rows:
   f.write(u"#: ")
   f.write(line1.encode('utf8'))
   f.write(u"\n")
-  f.write(u"msgid \"")
+  f.write(u"msgid \")
   f.write(line2.encode('utf8'))
   f.write(u"\"\n")
   f.write(u"msgstr \"")
